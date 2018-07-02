@@ -63,9 +63,10 @@ My model is based on the nVIDIA model. It consists of:
 5. Convolution Layer: kernel 3x3, depth: 64, activation: elu, max pooling 2x2
 6. Flatten Layer
 7. Dense Layer: 100, activation: elu
-8. Dense Layer: 50, activation: elu
-9. Dense Layer: 10, activation: elu
-10. Dense Layer: 1
+8. Dropout Layer: dropout rate = 0.1
+9. Dense Layer: 50, activation: elu
+10. Dense Layer: 10, activation: elu
+11. Dense Layer: 1
 
 
 #### 2. Attempts to reduce overfitting in the model
@@ -102,6 +103,7 @@ Next, I cropped the image to get rid of those parts of the image that don't cont
 Then I tried the nVIDIA network instead of the LeNet architecture: With the augmented net, the car was able to go over the bridge.
 
 I collected a few more data until the car was able to accomplish driving the whole track by itself.
+
 
 
 #### 2. Final Model Architecture
