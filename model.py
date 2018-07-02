@@ -70,7 +70,7 @@ y_train = np.array(measurements)
 
 plt.figure(1)
 plt.hist(measurements, bins = 500)
-plt.show()
+#plt.show()
    
 print("Number of samples: ", len(y_train))
     
@@ -116,6 +116,7 @@ model.add(Flatten())
 
 model.add(Dense(100, activation=activation))
 model.add(Activation(activation))
+model.add(Dropout(rate=0.1))
 
 model.add(Dense(50, activation=activation))
 model.add(Activation(activation))
@@ -131,10 +132,10 @@ adam = Adam(lr=learning_rate)
 model.compile(loss='mse', optimizer='adam')
 
 start = timer()
-#history_object = model.fit(X_train, y_train, 
-#                           validation_split=0.2, 
-#                           shuffle=True, 
-#                           nb_epoch=epoch)
+history_object = model.fit(X_train, y_train, 
+                           validation_split=0.2, 
+                           shuffle=True, 
+                           nb_epoch=epoch)
                            
 print("Time for training [min]: ", (timer() - start)/60)
 
